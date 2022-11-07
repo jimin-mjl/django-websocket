@@ -39,6 +39,7 @@
                         <div class="chat-room-head">
                         </div>
                         <div class="room-desk">
+                            {% csrf_token %}
                             <h4 class="pull-left">open rooms</h4>
                             <button class="custom-btn pull-right btn" data-toggle="modal" data-target="#submitModal">+
                                 Create Room</button>

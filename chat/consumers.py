@@ -10,11 +10,9 @@ chat_service = Chat()
 class LobbyConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         await self.accept()
-        print('lobby connected')
 
     async def disconnect(self, close_code):
         chat_service.exit_lobby(self.channel_name)
-        print('lobby disconnected')
 
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
@@ -43,7 +41,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
             self.channel_name
         )
         await self.accept()
-        print('connected')
 
     async def disconnect(self, close_code):
         # room group에서 제외시키기 
@@ -62,7 +59,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
             }
         )
         chat_service.exit_member(self.room_name, self.user_id)
-        print('disconnected')
 
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)

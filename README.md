@@ -4,10 +4,9 @@
 
 웹 소켓을 사용해 실시간 익명 채팅 서비스를 구현한다.
 
-## 목표
+## 데모
 
-1. 웹 소켓의 동작 과정을 이해한다.
-2. Django Channels 라이브러리를 사용해 Consumer-Subscriber 구조로 서버와 클라이언트를 관리할 수 있도록 구현한다.
+[데모 비디오 링크](https://drive.google.com/file/d/1qYbTxtjOKMHFzDT1u8UPm_XfWWdrfKI6/view?usp=sharing)
 
 ## 개발 환경
 
@@ -24,6 +23,31 @@
 - 로비 또는 채팅방 안에서 참여 멤버 목록을 확인할 수 있다.
 - 이름으로 채팅방을 검색할 수 있다.
 - 채팅방에 남은 마지막 멤버가 나가면 채팅방은 자동으로 삭제된다.
+
+## 실행 방법
+
+1. .env 파일 생성
+
+```
+# 예시
+SECRET_KEY=somekey
+DEBUG=True
+ALLOWED_HOSTS=127.0.0.1
+```
+
+2. 의존 파일 설치
+
+```
+pip install -r requirements.txt
+```
+
+3. 실행
+
+```
+python manage.py runserver
+```
+
+4. `127.0.0.1/8000` 접속
 
 ## Next Step
 
