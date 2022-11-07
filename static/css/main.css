@@ -1,0 +1,9 @@
+@import "./reset.css";
+
+body {
+    box-sizing: border-box;
+}
+
+.custom-anchor:hover {
+    color: #39bbdb !important;
+}

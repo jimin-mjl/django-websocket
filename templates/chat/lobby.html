@@ -1,0 +1,91 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}Chat Lobby{% endblock %}
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/lobby.css' %}">
+{% endblock %}
+
+{% block contents %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- start:lobby -->
+            <div class="box">
+                <div class="chat-room">
+                    <!-- start:aside lobby kiri -->
+                    <!-- 왼쪽 사이드바 -->
+                    <aside class="kiri-side">
+                        <div class="user-head">
+                            <i class="fa fa-comments-o"></i>
+                            <h1 id="chat-title">Chat Lobby</h1>
+                        </div>
+                        <ul class="chat-list">
+                            <li class="active">
+                                <h4>
+                                    <i class="fa fa-list"></i>
+                                    Active Members in Lobby
+                                    </h2>
+                            </li>
+                            <ul class="chat-list" id="lobbyMember-list"></ul>
+                        </ul>
+                    </aside>
+                    <!-- end:aside lobby kiri -->
+                    <!-- start:aside lobby tengah -->
+                    <!-- 중간 채팅방 리스트 -->
+                    <aside class="tengah-side">
+                        <div class="chat-room-head">
+                        </div>
+                        <div class="room-desk">
+                            <h4 class="pull-left">open rooms</h4>
+                            <button class="custom-btn pull-right btn" data-toggle="modal" data-target="#submitModal">+
+                                Create Room</button>
+                            {% for room in room_list %}
+                            <div class="room-box">
+                                <div class="roomTitle-wrapper">
+                                    <h5>{{ room }}</h5>
+                                    <p>
+                                        <span class="text-muted">Members :</span>
+                                        <span id="{{ room }}-members-container"></span>
+                                    </p>
+                                </div>
+                                <a href="{% url 'chat:room' room_name=room %}">
+                                    <button class="custom-btn-white pull-right btn btn-sm">Join Room</button>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </aside>
+                    <!-- end:aside lobby tengah -->
+                    <!-- start:aside lobby kanan -->
+                    <!-- 오른쪽 사이드바 -->
+                    <aside class="kanan-side">
+                        <div class="user-head">
+                        </div>
+                        <div class="invite-row">
+                            <div class="pull-right position" id="room-search-form">
+                                <input type="text" placeholder="Search chat room" class="form-control search-btn"
+                                    id="room-search-input">
+                                <button class="chat-tools btn btn-default custom-btn" id="room-search-btn"><i
+                                        class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <ul class="chat-available-user" id="room-search-result-list">
+                        </ul>
+                    </aside>
+                    <!-- end:aside lobby kanan -->
+                </div>
+            </div>
+            <!-- end:lobby -->
+        </div>
+    </div>
+</div>
+{% include 'components/submitModal.html' %}
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script type="module" src="{% static 'js/initLobby.js' %}"></script>
+{% endblock %}

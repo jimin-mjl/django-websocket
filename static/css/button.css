@@ -1,0 +1,21 @@
+.custom-btn {
+    background-color: #39bbdb !important;
+    color: white !important;
+    margin-bottom: 10px;
+}
+
+.custom-btn-white {
+    background-color: white !important;
+    color: #39bbdb;
+    border: #39bbdb solid 1px;
+    margin-top: 8px;
+}
+
+.custom-btn-white:hover {
+    background-color: #39bbdb !important;
+    color: white;
+}
+
+#backBtn {
+    color: #39bbdb;
+}

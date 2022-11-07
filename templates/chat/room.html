@@ -1,0 +1,53 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}Chat Room{% endblock %}
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/room.css' %}">
+{% endblock %}
+
+{% block contents %}
+{{ room_name|json_script:"room-name" }}
+{{ events|json_script:"events" }}
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center no-margin">
+            <div class="col-md-6">
+                <div class="card card-bordered">
+                    <div class="card-header">
+                        <a href="{% url 'chat:lobby' %}"><i class="fa fa-chevron-left" id="backBtn"></i></a>
+                        <h4 class="card-title"><strong>{{ room_name }}</strong></h4>
+                        <div class="btn btn-sm" id="nickname-btn"></div>
+                    </div>
+                    <div class="ps-container ps-theme-default ps-active-y" id="messageBox"
+                        style="overflow-y: scroll !important; height:400px !important;">
+                        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                            <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                        </div>
+                        <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
+                            <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
+                        </div>
+                    </div>
+                    <div class="publisher bt-1 border-light">
+                        <input id="chat-message-input" class="publisher-input" type="text"
+                            placeholder="Write a message">
+                        <input id="chat-message-submit" class="publisher-btn btn custom-btn" type="button" value="Send">
+                    </div>
+                    <div class="memberList-container">
+                        <p class="memberList-header">Joined Members</p>
+                        <ul id="memberList"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="notificationBox"></div>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script type="module" src="{% static 'js/initChatRoom.js' %}"></script>
+{% endblock %}

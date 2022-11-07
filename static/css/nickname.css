@@ -1,0 +1,50 @@
+.nicknameSubmitContainer {
+  color:#313437;
+  background-color:#fff;
+  padding:50px 0;
+}
+  
+.nicknameSubmitContainer form {
+justify-content:center;
+}
+
+.nicknameSubmitContainer form .form-control {
+background:#eff1f4;
+border:none;
+border-radius:3px;
+box-shadow:none;
+outline:none;
+color:inherit;
+text-indent:9px;
+height:45px;
+margin-right:10px;
+min-width:250px;
+}
+
+.nicknameSubmitContainer form .btn {
+padding:16px 32px;
+border:none;
+background:none;
+box-shadow:none;
+text-shadow:none;
+opacity:0.9;
+text-transform:uppercase;
+font-weight:bold;
+font-size:13px;
+letter-spacing:0.4px;
+line-height:1;
+}
+
+.nicknameSubmitContainer form .btn:hover {
+opacity:1;
+}
+
+.nicknameSubmitContainer form .btn:active {
+transform:translateY(1px);
+}
+
+.nicknameSubmitContainer form .btn-primary {
+background-color:#39bbdb !important;
+color:#fff;
+outline:none !important;
+}
